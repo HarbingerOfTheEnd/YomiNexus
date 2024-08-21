@@ -1,6 +1,7 @@
 {
-  "appTitle": "yominexus",
-  "@appTitle": {
-    "description": "The title of the application"
-  }
+	"@@locale": "en",
+	"appTitle": "yominexus",
+	"@appTitle": {
+		"description": "The title of the application"
+	}
 }
