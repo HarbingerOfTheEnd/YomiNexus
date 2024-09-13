@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:yominexus/core/constants.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({
@@ -24,17 +25,7 @@ class MyApp extends StatelessWidget {
           AppLocalizations.of(context)!.appTitle,
       theme: ThemeData(),
       darkTheme: ThemeData.dark(),
-      onGenerateRoute: (RouteSettings routeSettings) {
-        return MaterialPageRoute<void>(
-          settings: routeSettings,
-          builder: (BuildContext context) {
-            switch (routeSettings.name) {
-              default:
-                return const CircularProgressIndicator();
-            }
-          },
-        );
-      },
+      routes: Constants.routes,
     );
   }
 }
