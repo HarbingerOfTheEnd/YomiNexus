@@ -24,6 +24,7 @@ class App extends ConsumerWidget {
           AppLocalizations.of(context)!.appTitle,
       theme: ThemeData(),
       darkTheme: ThemeData.dark(),
+      initialRoute: Constants.initialRoute,
       routes: Constants.routes,
     );
   }
