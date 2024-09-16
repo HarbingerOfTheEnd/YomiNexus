@@ -21,7 +21,7 @@ class App extends ConsumerWidget {
         Locale('en', ''),
       ],
       onGenerateTitle: (BuildContext context) =>
-          AppLocalizations.of(context)!.appTitle,
+          AppLocalizations.of(context)?.appTitle ?? 'YomiNexus',
       theme: ThemeData(),
       darkTheme: ThemeData.dark(),
       initialRoute: Constants.initialRoute,
