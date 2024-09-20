@@ -26,6 +26,7 @@ class App extends ConsumerWidget {
       darkTheme: ThemeData.dark(),
       initialRoute: Constants.initialRoute,
       routes: Constants.routes,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
