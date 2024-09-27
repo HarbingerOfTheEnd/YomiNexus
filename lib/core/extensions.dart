@@ -7,19 +7,15 @@ extension ColorSchemeExt on SharedPreferencesWithCache {
     final String? colorschemeValue = getString(Constants.colorschemeKey);
     if (colorschemeValue == null) {
       return (
-        Constants.defaultColorSchemeLight,
-        Constants.defaultColorSchemeDark
+        Constants.yominexusColorSchemeLight,
+        Constants.yominexusColorSchemeDark
       );
     }
 
     return switch (colorschemeValue) {
       'Default' => (
-          Constants.defaultColorSchemeLight,
-          Constants.defaultColorSchemeDark,
-        ),
-      'Dynamic' => (
-          Constants.dynamicColorSchemeLight,
-          Constants.dynamicColorSchemeDark,
+          Constants.yominexusColorSchemeLight,
+          Constants.yominexusColorSchemeDark,
         ),
       'Cloudflare' => (
           Constants.cloudflareColorSchemeLight,
@@ -62,16 +58,16 @@ extension ColorSchemeExt on SharedPreferencesWithCache {
           Constants.nordColorSchemeDark,
         ),
       'Strawberry Daiquiri' => (
-          Constants.strawberryDaiquiriColorSchemeLight,
-          Constants.strawberryDaiquiriColorSchemeDark,
+          Constants.strawberryColorSchemeLight,
+          Constants.strawberryColorSchemeDark,
         ),
       'Tako' => (
           Constants.takoColorSchemeLight,
           Constants.takoColorSchemeDark,
         ),
       'Teal & Turquoise' => (
-          Constants.tealAndTurquoiseColorSchemeLight,
-          Constants.tealAndTurquoiseColorSchemeDark,
+          Constants.tealTurquoiseColorSchemeLight,
+          Constants.tealTurquoiseColorSchemeDark,
         ),
       'Tidal Wave' => (
           Constants.tidalWaveColorSchemeLight,
@@ -86,8 +82,8 @@ extension ColorSchemeExt on SharedPreferencesWithCache {
           Constants.yotsubaColorSchemeDark,
         ),
       _ => (
-          Constants.defaultColorSchemeLight,
-          Constants.defaultColorSchemeDark,
+          Constants.yominexusColorSchemeLight,
+          Constants.yominexusColorSchemeDark,
         ),
     };
   }
