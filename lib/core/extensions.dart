@@ -87,4 +87,49 @@ extension ColorSchemeExt on SharedPreferencesWithCache {
         ),
     };
   }
+
+  Future<(ColorScheme, ColorScheme)> setColorScheme(
+    ColorScheme colorScheme,
+  ) async {
+    final String colorschemeValue = switch (colorScheme) {
+      Constants.yominexusColorSchemeLight => 'Default',
+      Constants.yominexusColorSchemeDark => 'Default',
+      Constants.cloudflareColorSchemeLight => 'Cloudflare',
+      Constants.cloudflareColorSchemeDark => 'Cloudflare',
+      Constants.cottonCandyColorSchemeLight => 'Cotton Candy',
+      Constants.cottonCandyColorSchemeDark => 'Cotton Candy',
+      Constants.doomColorSchemeLight => 'Doom',
+      Constants.doomColorSchemeDark => 'Doom',
+      Constants.greenAppleColorSchemeLight => 'Green Apple',
+      Constants.greenAppleColorSchemeDark => 'Green Apple',
+      Constants.lavenderColorSchemeLight => 'Lavender',
+      Constants.lavenderColorSchemeDark => 'Lavender',
+      Constants.matrixColorSchemeLight => 'Matrix',
+      Constants.matrixColorSchemeDark => 'Matrix',
+      Constants.midnightDuskColorSchemeLight => 'Midnight Dusk',
+      Constants.midnightDuskColorSchemeDark => 'Midnight Dusk',
+      Constants.mochaColorSchemeLight => 'Mocha',
+      Constants.mochaColorSchemeDark => 'Mocha',
+      Constants.sapphireColorSchemeLight => 'Sapphire',
+      Constants.sapphireColorSchemeDark => 'Sapphire',
+      Constants.nordColorSchemeLight => 'Nord',
+      Constants.nordColorSchemeDark => 'Nord',
+      Constants.strawberryColorSchemeLight => 'Strawberry Daiquiri',
+      Constants.strawberryColorSchemeDark => 'Strawberry Daiquiri',
+      Constants.takoColorSchemeLight => 'Tako',
+      Constants.takoColorSchemeDark => 'Tako',
+      Constants.tealTurquoiseColorSchemeLight => 'Teal & Turquoise',
+      Constants.tealTurquoiseColorSchemeDark => 'Teal & Turquoise',
+      Constants.tidalWaveColorSchemeLight => 'Tidal Wave',
+      Constants.tidalWaveColorSchemeDark => 'Tidal Wave',
+      Constants.yinAndYangColorSchemeLight => 'Yin & Yang',
+      Constants.yinAndYangColorSchemeDark => 'Yin & Yang',
+      Constants.yotsubaColorSchemeLight => 'Yotsuba',
+      Constants.yotsubaColorSchemeDark => 'Yotsuba',
+      _ => 'Default',
+    };
+
+    await setString(Constants.colorschemeKey, colorschemeValue);
+    return Future.value(getColorScheme());
+  }
 }

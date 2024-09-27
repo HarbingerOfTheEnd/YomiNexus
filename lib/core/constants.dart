@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yominexus/ui/library/novel/novel_library_view.dart';
 
 @immutable
@@ -9,6 +10,8 @@ class Constants {
   static final Map<String, WidgetBuilder> routes = {
     NovelLibraryView.routeName: (context) => const NovelLibraryView(),
   };
+
+  static late final SharedPreferencesWithCache sharedPreferences;
 
   static const String _keyPrefix = 'yominexus';
   static const String colorschemeKey = '$_keyPrefix.colorscheme';
@@ -947,4 +950,12 @@ class Constants {
     surfaceContainerHigh: Color(0xFF413531),
     surfaceContainerHighest: Color(0xFF4C403D),
   );
+
+  Future<void> init() async {
+    sharedPreferences = await SharedPreferencesWithCache.create(
+      cacheOptions: const SharedPreferencesWithCacheOptions(
+        allowList: allowList,
+      ),
+    );
+  }
 }
