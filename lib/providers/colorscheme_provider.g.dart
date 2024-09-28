@@ -7,12 +7,12 @@ part of 'colorscheme_provider.dart';
 // **************************************************************************
 
 String _$colorschemeProviderHash() =>
-    r'af775922a258a655d6f33aaf4b3ec4738718c2fe';
+    r'2f09b79d5f24daf71a249957b1880c193ea0e5d5';
 
 /// See also [ColorschemeProvider].
 @ProviderFor(ColorschemeProvider)
 final colorschemeProviderProvider = AutoDisposeNotifierProvider<
-    ColorschemeProvider, (ColorScheme, ColorScheme)>.internal(
+    ColorschemeProvider, (ColorScheme?, ColorScheme?)>.internal(
   ColorschemeProvider.new,
   name: r'colorschemeProviderProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -22,6 +22,7 @@ final colorschemeProviderProvider = AutoDisposeNotifierProvider<
   allTransitiveDependencies: null,
 );
 
-typedef _$ColorschemeProvider = AutoDisposeNotifier<(ColorScheme, ColorScheme)>;
+typedef _$ColorschemeProvider
+    = AutoDisposeNotifier<(ColorScheme?, ColorScheme?)>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
