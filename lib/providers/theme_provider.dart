@@ -1,44 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:yominexus/providers/colorscheme_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:yominexus/core/constants.dart';
+import 'package:yominexus/core/extensions.dart';
 part 'theme_provider.g.dart';
 
 @riverpod
 class YominexusTheme extends _$YominexusTheme {
   (ThemeData?, ThemeData?) _getTheme() {
-    final (lightColorScheme, darkColorScheme) = ref.watch(
-      yominexusColorSchemeProvider,
-    );
+    final (lightColorScheme, darkColorScheme) =
+        Constants.sharedPreferences.getColorScheme();
+
     final ThemeData? lightTheme = lightColorScheme != null
-        ? ThemeData.light(
-            useMaterial3: true,
-          ).copyWith(
-            colorScheme: lightColorScheme,
-          )
+        ? ThemeData.from(colorScheme: lightColorScheme)
         : null;
+
     final ThemeData? darkTheme = darkColorScheme != null
-        ? ThemeData.dark(
-            useMaterial3: true,
-          ).copyWith(
-            colorScheme: darkColorScheme,
-          )
+        ? ThemeData.from(colorScheme: darkColorScheme)
         : null;
 
     return (lightTheme, darkTheme);
   }
 
-  ThemeData? get _lightTheme => _getTheme().$1;
-  ThemeData? get _darkTheme => _getTheme().$2;
-
   @override
   (ThemeData?, ThemeData?) build() {
-    return (_lightTheme, _darkTheme);
+    return _getTheme();
   }
 
   Future<void> setTheme(ColorScheme colorscheme) async {
-    await ref.read(yominexusColorSchemeProvider.notifier).setColorScheme(
-          colorscheme,
-        );
+    Constants.sharedPreferences.setColorScheme(colorscheme);
 
     state = _getTheme();
   }
