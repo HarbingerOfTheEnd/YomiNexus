@@ -3,133 +3,261 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yominexus/core/constants.dart';
 
 extension ColorSchemeExt on SharedPreferencesWithCache {
-  (ColorScheme, ColorScheme) getColorScheme() {
-    final String? colorschemeValue = getString(Constants.colorschemeKey);
-    if (colorschemeValue == null) {
-      return (
-        Constants.yominexusColorSchemeLight,
-        Constants.yominexusColorSchemeDark
-      );
-    }
+  (ColorScheme?, ColorScheme?) getColorScheme() {
+    final String colorschemeValue =
+        getString(Constants.colorschemeKey) ?? 'Default';
+    final String themeModeValue = getString(Constants.themeModeKey) ?? 'System';
 
-    return switch (colorschemeValue) {
-      'Default' => (
-          Constants.yominexusColorSchemeLight,
-          Constants.yominexusColorSchemeDark,
+    return switch ([colorschemeValue, themeModeValue]) {
+      [Constants.cloudflareColorSchemeValue, 'light'] => (
+          Constants.cloudflareColorSchemeLight,
+          null
         ),
-      'Cloudflare' => (
+      [Constants.cloudflareColorSchemeValue, 'dark'] => (
+          null,
+          Constants.cloudflareColorSchemeDark,
+        ),
+      [Constants.cloudflareColorSchemeValue, 'system'] => (
           Constants.cloudflareColorSchemeLight,
           Constants.cloudflareColorSchemeDark,
         ),
-      'Cotton Candy' => (
+      [Constants.cottonCandyColorSchemeValue, 'light'] => (
+          Constants.cottonCandyColorSchemeLight,
+          null,
+        ),
+      [Constants.cottonCandyColorSchemeValue, 'dark'] => (
+          null,
+          Constants.cottonCandyColorSchemeDark,
+        ),
+      [Constants.cottonCandyColorSchemeValue, 'system'] => (
           Constants.cottonCandyColorSchemeLight,
           Constants.cottonCandyColorSchemeDark,
         ),
-      'Doom' => (
+      [Constants.doomColorSchemeValue, 'light'] => (
+          Constants.doomColorSchemeLight,
+          null,
+        ),
+      [Constants.doomColorSchemeValue, 'dark'] => (
+          null,
+          Constants.doomColorSchemeDark,
+        ),
+      [Constants.doomColorSchemeValue, 'system'] => (
           Constants.doomColorSchemeLight,
           Constants.doomColorSchemeDark,
         ),
-      'Green Apple' => (
+      [Constants.greenAppleColorSchemeValue, 'light'] => (
+          Constants.greenAppleColorSchemeLight,
+          null,
+        ),
+      [Constants.greenAppleColorSchemeValue, 'dark'] => (
+          null,
+          Constants.greenAppleColorSchemeDark,
+        ),
+      [Constants.greenAppleColorSchemeValue, 'system'] => (
           Constants.greenAppleColorSchemeLight,
           Constants.greenAppleColorSchemeDark,
         ),
-      'Lavender' => (
+      [Constants.lavenderColorSchemeValue, 'light'] => (
+          Constants.lavenderColorSchemeLight,
+          null,
+        ),
+      [Constants.lavenderColorSchemeValue, 'dark'] => (
+          null,
+          Constants.lavenderColorSchemeDark,
+        ),
+      [Constants.lavenderColorSchemeValue, 'system'] => (
           Constants.lavenderColorSchemeLight,
           Constants.lavenderColorSchemeDark,
         ),
-      'Matrix' => (
+      [Constants.matrixColorSchemeValue, 'light'] => (
+          Constants.matrixColorSchemeLight,
+          null,
+        ),
+      [Constants.matrixColorSchemeValue, 'dark'] => (
+          null,
+          Constants.matrixColorSchemeDark,
+        ),
+      [Constants.matrixColorSchemeValue, 'system'] => (
           Constants.matrixColorSchemeLight,
           Constants.matrixColorSchemeDark,
         ),
-      'Midnight Dusk' => (
+      [Constants.midnightDuskColorSchemeValue, 'light'] => (
+          Constants.midnightDuskColorSchemeLight,
+          null,
+        ),
+      [Constants.midnightDuskColorSchemeValue, 'dark'] => (
+          null,
+          Constants.midnightDuskColorSchemeDark,
+        ),
+      [Constants.midnightDuskColorSchemeValue, 'system'] => (
           Constants.midnightDuskColorSchemeLight,
           Constants.midnightDuskColorSchemeDark,
         ),
-      'Mocha' => (
+      [Constants.mochaColorSchemeValue, 'light'] => (
+          Constants.mochaColorSchemeLight,
+          null,
+        ),
+      [Constants.mochaColorSchemeValue, 'dark'] => (
+          null,
+          Constants.mochaColorSchemeDark,
+        ),
+      [Constants.mochaColorSchemeValue, 'system'] => (
           Constants.mochaColorSchemeLight,
           Constants.mochaColorSchemeDark,
         ),
-      'Sapphire' => (
+      [Constants.sapphireColorSchemeValue, 'light'] => (
+          Constants.sapphireColorSchemeLight,
+          null,
+        ),
+      [Constants.sapphireColorSchemeValue, 'dark'] => (
+          null,
+          Constants.sapphireColorSchemeDark,
+        ),
+      [Constants.sapphireColorSchemeValue, 'system'] => (
           Constants.sapphireColorSchemeLight,
           Constants.sapphireColorSchemeDark,
         ),
-      'Nord' => (
+      [Constants.nordColorSchemeValue, 'light'] => (
+          Constants.nordColorSchemeLight,
+          null,
+        ),
+      [Constants.nordColorSchemeValue, 'dark'] => (
+          null,
+          Constants.nordColorSchemeDark,
+        ),
+      [Constants.nordColorSchemeValue, 'system'] => (
           Constants.nordColorSchemeLight,
           Constants.nordColorSchemeDark,
         ),
-      'Strawberry Daiquiri' => (
+      [Constants.strawberryColorSchemeValue, 'light'] => (
+          Constants.strawberryColorSchemeLight,
+          null,
+        ),
+      [Constants.strawberryColorSchemeValue, 'dark'] => (
+          null,
+          Constants.strawberryColorSchemeDark,
+        ),
+      [Constants.strawberryColorSchemeValue, 'system'] => (
           Constants.strawberryColorSchemeLight,
           Constants.strawberryColorSchemeDark,
         ),
-      'Tako' => (
+      [Constants.takoColorSchemeValue, 'light'] => (
+          Constants.takoColorSchemeLight,
+          null,
+        ),
+      [Constants.takoColorSchemeValue, 'dark'] => (
+          null,
+          Constants.takoColorSchemeDark,
+        ),
+      [Constants.takoColorSchemeValue, 'system'] => (
           Constants.takoColorSchemeLight,
           Constants.takoColorSchemeDark,
         ),
-      'Teal & Turquoise' => (
+      [Constants.tealTurquoiseColorSchemeValue, 'light'] => (
+          Constants.tealTurquoiseColorSchemeLight,
+          null,
+        ),
+      [Constants.tealTurquoiseColorSchemeValue, 'dark'] => (
+          null,
+          Constants.tealTurquoiseColorSchemeDark,
+        ),
+      [Constants.tealTurquoiseColorSchemeValue, 'system'] => (
           Constants.tealTurquoiseColorSchemeLight,
           Constants.tealTurquoiseColorSchemeDark,
         ),
-      'Tidal Wave' => (
+      [Constants.tidalWaveColorSchemeValue, 'light'] => (
+          Constants.tidalWaveColorSchemeLight,
+          null,
+        ),
+      [Constants.tidalWaveColorSchemeValue, 'dark'] => (
+          null,
+          Constants.tidalWaveColorSchemeDark,
+        ),
+      [Constants.tidalWaveColorSchemeValue, 'system'] => (
           Constants.tidalWaveColorSchemeLight,
           Constants.tidalWaveColorSchemeDark,
         ),
-      'Yin & Yang' => (
+      [Constants.yinAndYangColorSchemeValue, 'light'] => (
+          Constants.yinAndYangColorSchemeLight,
+          null,
+        ),
+      [Constants.yinAndYangColorSchemeValue, 'dark'] => (
+          null,
+          Constants.yinAndYangColorSchemeDark,
+        ),
+      [Constants.yinAndYangColorSchemeValue, 'system'] => (
           Constants.yinAndYangColorSchemeLight,
           Constants.yinAndYangColorSchemeDark,
         ),
-      'Yotsuba' => (
+      [Constants.yotsubaColorSchemeValue, 'light'] => (
+          Constants.yotsubaColorSchemeLight,
+          null,
+        ),
+      [Constants.yotsubaColorSchemeValue, 'dark'] => (
+          null,
+          Constants.yotsubaColorSchemeDark,
+        ),
+      [Constants.yotsubaColorSchemeValue, 'system'] => (
           Constants.yotsubaColorSchemeLight,
           Constants.yotsubaColorSchemeDark,
         ),
-      _ => (
-          Constants.yominexusColorSchemeLight,
-          Constants.yominexusColorSchemeDark,
-        ),
+      _ => (null, null),
     };
   }
 
-  Future<(ColorScheme, ColorScheme)> setColorScheme(
+  Future<void> setColorScheme(
     ColorScheme colorScheme,
   ) async {
     final String colorschemeValue = switch (colorScheme) {
-      Constants.yominexusColorSchemeLight => 'Default',
-      Constants.yominexusColorSchemeDark => 'Default',
-      Constants.cloudflareColorSchemeLight => 'Cloudflare',
-      Constants.cloudflareColorSchemeDark => 'Cloudflare',
-      Constants.cottonCandyColorSchemeLight => 'Cotton Candy',
-      Constants.cottonCandyColorSchemeDark => 'Cotton Candy',
-      Constants.doomColorSchemeLight => 'Doom',
-      Constants.doomColorSchemeDark => 'Doom',
-      Constants.greenAppleColorSchemeLight => 'Green Apple',
-      Constants.greenAppleColorSchemeDark => 'Green Apple',
-      Constants.lavenderColorSchemeLight => 'Lavender',
-      Constants.lavenderColorSchemeDark => 'Lavender',
-      Constants.matrixColorSchemeLight => 'Matrix',
-      Constants.matrixColorSchemeDark => 'Matrix',
-      Constants.midnightDuskColorSchemeLight => 'Midnight Dusk',
-      Constants.midnightDuskColorSchemeDark => 'Midnight Dusk',
-      Constants.mochaColorSchemeLight => 'Mocha',
-      Constants.mochaColorSchemeDark => 'Mocha',
-      Constants.sapphireColorSchemeLight => 'Sapphire',
-      Constants.sapphireColorSchemeDark => 'Sapphire',
-      Constants.nordColorSchemeLight => 'Nord',
-      Constants.nordColorSchemeDark => 'Nord',
-      Constants.strawberryColorSchemeLight => 'Strawberry Daiquiri',
-      Constants.strawberryColorSchemeDark => 'Strawberry Daiquiri',
-      Constants.takoColorSchemeLight => 'Tako',
-      Constants.takoColorSchemeDark => 'Tako',
-      Constants.tealTurquoiseColorSchemeLight => 'Teal & Turquoise',
-      Constants.tealTurquoiseColorSchemeDark => 'Teal & Turquoise',
-      Constants.tidalWaveColorSchemeLight => 'Tidal Wave',
-      Constants.tidalWaveColorSchemeDark => 'Tidal Wave',
-      Constants.yinAndYangColorSchemeLight => 'Yin & Yang',
-      Constants.yinAndYangColorSchemeDark => 'Yin & Yang',
-      Constants.yotsubaColorSchemeLight => 'Yotsuba',
-      Constants.yotsubaColorSchemeDark => 'Yotsuba',
-      _ => 'Default',
+      Constants.cloudflareColorSchemeLight =>
+        Constants.cloudflareColorSchemeValue,
+      Constants.cloudflareColorSchemeDark =>
+        Constants.cloudflareColorSchemeValue,
+      Constants.cottonCandyColorSchemeLight =>
+        Constants.cottonCandyColorSchemeValue,
+      Constants.cottonCandyColorSchemeDark =>
+        Constants.cottonCandyColorSchemeValue,
+      Constants.doomColorSchemeLight => Constants.doomColorSchemeValue,
+      Constants.doomColorSchemeDark => Constants.doomColorSchemeValue,
+      Constants.greenAppleColorSchemeLight =>
+        Constants.greenAppleColorSchemeValue,
+      Constants.greenAppleColorSchemeDark =>
+        Constants.greenAppleColorSchemeValue,
+      Constants.lavenderColorSchemeLight => Constants.lavenderColorSchemeValue,
+      Constants.lavenderColorSchemeDark => Constants.lavenderColorSchemeValue,
+      Constants.matrixColorSchemeLight => Constants.matrixColorSchemeValue,
+      Constants.matrixColorSchemeDark => Constants.matrixColorSchemeValue,
+      Constants.midnightDuskColorSchemeLight =>
+        Constants.midnightDuskColorSchemeValue,
+      Constants.midnightDuskColorSchemeDark =>
+        Constants.midnightDuskColorSchemeValue,
+      Constants.mochaColorSchemeLight => Constants.mochaColorSchemeValue,
+      Constants.mochaColorSchemeDark => Constants.mochaColorSchemeValue,
+      Constants.sapphireColorSchemeLight => Constants.sapphireColorSchemeValue,
+      Constants.sapphireColorSchemeDark => Constants.sapphireColorSchemeValue,
+      Constants.nordColorSchemeLight => Constants.nordColorSchemeValue,
+      Constants.nordColorSchemeDark => Constants.nordColorSchemeValue,
+      Constants.strawberryColorSchemeLight =>
+        Constants.strawberryColorSchemeValue,
+      Constants.strawberryColorSchemeDark =>
+        Constants.strawberryColorSchemeValue,
+      Constants.takoColorSchemeLight => Constants.takoColorSchemeValue,
+      Constants.takoColorSchemeDark => Constants.takoColorSchemeValue,
+      Constants.tealTurquoiseColorSchemeLight =>
+        Constants.tealTurquoiseColorSchemeValue,
+      Constants.tealTurquoiseColorSchemeDark =>
+        Constants.tealTurquoiseColorSchemeValue,
+      Constants.tidalWaveColorSchemeLight =>
+        Constants.tidalWaveColorSchemeValue,
+      Constants.tidalWaveColorSchemeDark => Constants.tidalWaveColorSchemeValue,
+      Constants.yinAndYangColorSchemeLight =>
+        Constants.yinAndYangColorSchemeValue,
+      Constants.yinAndYangColorSchemeDark =>
+        Constants.yinAndYangColorSchemeValue,
+      Constants.yotsubaColorSchemeLight => Constants.yotsubaColorSchemeValue,
+      _ => Constants.yominexusColorSchemeValue,
     };
 
     await setString(Constants.colorschemeKey, colorschemeValue);
-    return Future.value(getColorScheme());
   }
 }
