@@ -951,6 +951,24 @@ class Constants {
     surfaceContainerHighest: Color(0xFF4C403D),
   );
 
+  static const String yominexusColorSchemeValue = 'Default';
+  static const String cloudflareColorSchemeValue = 'Cloudflare';
+  static const String cottonCandyColorSchemeValue = 'Cotton Candy';
+  static const String doomColorSchemeValue = 'Doom';
+  static const String greenAppleColorSchemeValue = 'Green Apple';
+  static const String lavenderColorSchemeValue = 'Lavender';
+  static const String matrixColorSchemeValue = 'Matrix';
+  static const String midnightDuskColorSchemeValue = 'Midnight Dusk';
+  static const String mochaColorSchemeValue = 'Mocha';
+  static const String sapphireColorSchemeValue = 'Sapphire';
+  static const String nordColorSchemeValue = 'Nord';
+  static const String strawberryColorSchemeValue = 'Strawberry Daiquiri';
+  static const String takoColorSchemeValue = 'Tako';
+  static const String tealTurquoiseColorSchemeValue = 'Teal & Turquoise';
+  static const String tidalWaveColorSchemeValue = 'Tidal Wave';
+  static const String yinYangColorSchemeValue = 'Yin & Yang';
+  static const String yotsubaColorSchemeValue = 'Yotsuba';
+
   Future<void> init() async {
     sharedPreferences = await SharedPreferencesWithCache.create(
       cacheOptions: const SharedPreferencesWithCacheOptions(
