@@ -12,5 +12,9 @@ class ColorschemeProvider extends _$ColorschemeProvider {
     return Constants.sharedPreferences.getColorScheme();
   }
 
-  Future<void> setColorScheme(ColorScheme colorscheme) async {}
+  Future<void> setColorScheme(ColorScheme colorscheme) async {
+    await Constants.sharedPreferences.setColorScheme(colorscheme);
+
+    state = Constants.sharedPreferences.getColorScheme();
+  }
 }
