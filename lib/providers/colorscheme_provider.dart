@@ -6,7 +6,7 @@ import 'package:yominexus/core/extensions.dart';
 part 'colorscheme_provider.g.dart';
 
 @riverpod
-class ColorschemeProvider extends _$ColorschemeProvider {
+class YominexusColorScheme extends _$YominexusColorScheme {
   @override
   (ColorScheme?, ColorScheme?) build() {
     return Constants.sharedPreferences.getColorScheme();
