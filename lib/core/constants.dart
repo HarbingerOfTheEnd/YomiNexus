@@ -966,7 +966,7 @@ class Constants {
   static const String takoColorSchemeValue = 'Tako';
   static const String tealTurquoiseColorSchemeValue = 'Teal & Turquoise';
   static const String tidalWaveColorSchemeValue = 'Tidal Wave';
-  static const String yinYangColorSchemeValue = 'Yin & Yang';
+  static const String yinAndYangColorSchemeValue = 'Yin & Yang';
   static const String yotsubaColorSchemeValue = 'Yotsuba';
 
   Future<void> init() async {
