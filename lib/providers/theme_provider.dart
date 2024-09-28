@@ -10,24 +10,20 @@ class YominexusTheme extends _$YominexusTheme {
     final (lightColorScheme, darkColorScheme) = ref.watch(
       yominexusColorSchemeProvider,
     );
-    late final ThemeData? lightTheme;
-    late final ThemeData? darkTheme;
-
-    if (lightColorScheme != null) {
-      lightTheme = ThemeData.light(
-        useMaterial3: true,
-      ).copyWith(
-        colorScheme: lightColorScheme,
-      );
-    }
-
-    if (darkColorScheme != null) {
-      darkTheme = ThemeData.dark(
-        useMaterial3: true,
-      ).copyWith(
-        colorScheme: darkColorScheme,
-      );
-    }
+    final ThemeData? lightTheme = lightColorScheme != null
+        ? ThemeData.light(
+            useMaterial3: true,
+          ).copyWith(
+            colorScheme: lightColorScheme,
+          )
+        : null;
+    final ThemeData? darkTheme = darkColorScheme != null
+        ? ThemeData.dark(
+            useMaterial3: true,
+          ).copyWith(
+            colorScheme: darkColorScheme,
+          )
+        : null;
 
     return (lightTheme, darkTheme);
   }
