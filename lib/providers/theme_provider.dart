@@ -5,8 +5,7 @@ part 'theme_provider.g.dart';
 
 @riverpod
 class YominexusTheme extends _$YominexusTheme {
-  @override
-  (ThemeData?, ThemeData?) build() {
+  (ThemeData?, ThemeData?) _getTheme() {
     final (lightColorScheme, darkColorScheme) = ref.watch(
       yominexusColorSchemeProvider,
     );
@@ -26,5 +25,21 @@ class YominexusTheme extends _$YominexusTheme {
         : null;
 
     return (lightTheme, darkTheme);
+  }
+
+  ThemeData? get _lightTheme => _getTheme().$1;
+  ThemeData? get _darkTheme => _getTheme().$2;
+
+  @override
+  (ThemeData?, ThemeData?) build() {
+    return (_lightTheme, _darkTheme);
+  }
+
+  Future<void> setTheme(ColorScheme colorscheme) async {
+    await ref.read(yominexusColorSchemeProvider.notifier).setColorScheme(
+          colorscheme,
+        );
+
+    state = _getTheme();
   }
 }
