@@ -969,7 +969,7 @@ class Constants {
   static const String yinAndYangColorSchemeValue = 'Yin & Yang';
   static const String yotsubaColorSchemeValue = 'Yotsuba';
 
-  Future<void> init() async {
+  static Future<void> init() async {
     sharedPreferences = await SharedPreferencesWithCache.create(
       cacheOptions: const SharedPreferencesWithCacheOptions(
         allowList: allowList,
