@@ -7,15 +7,35 @@ part 'theme_provider.g.dart';
 @riverpod
 class YominexusTheme extends _$YominexusTheme {
   (ThemeData?, ThemeData?) _getTheme() {
-    final (lightColorScheme, darkColorScheme) =
+    final ColorScheme? lightColorScheme;
+    ColorScheme? darkColorScheme;
+    (lightColorScheme, darkColorScheme) =
         Constants.sharedPreferences.getColorScheme();
+    final bool isPureBlackDarkMode =
+        Constants.sharedPreferences.getIsPureBlackDarkMode();
 
-    final ThemeData? lightTheme = lightColorScheme != null
-        ? ThemeData.from(colorScheme: lightColorScheme)
-        : null;
+    if (isPureBlackDarkMode) {
+      const Color surfaceContainer = Color(0xFF0C0C0C);
+      const Color surfaceContainerHigh = Color(0xFF131313);
+      const Color surfaceContainerHighest = Color(0xFF1B1B1B);
+
+      darkColorScheme = darkColorScheme?.copyWith(
+        surface: Colors.black,
+        onSurface: Colors.white,
+        surfaceContainerLowest: surfaceContainer,
+        surfaceContainerLow: surfaceContainer,
+        surfaceContainer: surfaceContainer,
+        surfaceContainerHigh: surfaceContainerHigh,
+        surfaceContainerHighest: surfaceContainerHighest,
+      );
+    }
+
+    final ThemeData? lightTheme =
+        lightColorScheme != null ? ThemeData.light(useMaterial3: true) : null;
 
     final ThemeData? darkTheme = darkColorScheme != null
-        ? ThemeData.from(colorScheme: darkColorScheme)
+        ? ThemeData.dark(useMaterial3: true)
+            .copyWith(colorScheme: darkColorScheme)
         : null;
 
     return (lightTheme, darkTheme);
