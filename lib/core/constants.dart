@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yominexus/ui/library/novel/novel_library_view.dart';
+import 'package:yominexus/ui/settings/appearance.dart';
 
 @immutable
 class Constants {
   const Constants._();
 
-  static const String initialRoute = NovelLibraryView.routeName;
+  static const String initialRoute = AppearanceSettingsView.routeName;
   static final Map<String, WidgetBuilder> routes = {
     NovelLibraryView.routeName: (context) => const NovelLibraryView(),
+    AppearanceSettingsView.routeName: (context) =>
+        const AppearanceSettingsView(),
   };
 
   static late final SharedPreferencesWithCache sharedPreferences;
