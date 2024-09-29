@@ -261,3 +261,15 @@ extension ColorSchemeExt on SharedPreferencesWithCache {
     await setString(Constants.colorschemeKey, colorschemeValue);
   }
 }
+
+extension IsPureBlackDarkModeExt on SharedPreferencesWithCache {
+  bool getIsPureBlackDarkMode() {
+    return getBool(Constants.isPureBlackDarkModeKey) ?? false;
+  }
+
+  Future<void> setIsPureBlackDarkMode(
+    bool isPureBlackMode,
+  ) async {
+    await setBool(Constants.isPureBlackDarkModeKey, isPureBlackMode);
+  }
+}

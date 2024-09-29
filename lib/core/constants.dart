@@ -19,6 +19,8 @@ class Constants {
   static const String _keyPrefix = 'yominexus';
   static const String colorschemeKey = '$_keyPrefix.colorscheme';
   static const String themeModeKey = '$_keyPrefix.themeMode';
+  static const String isPureBlackDarkModeKey =
+      '$_keyPrefix.isPureBlackDarkMode';
   static const Set<String> allowList = {
     colorschemeKey,
     themeModeKey,
