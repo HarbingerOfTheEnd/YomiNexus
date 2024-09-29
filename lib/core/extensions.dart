@@ -290,3 +290,9 @@ extension IsPureBlackDarkModeExt on SharedPreferencesWithCache {
     await setBool(Constants.isPureBlackDarkModeKey, isPureBlackMode);
   }
 }
+
+extension CapitalizeExt on String {
+  String capitalize() {
+    return '${this[0].toUpperCase()}${substring(1)}';
+  }
+}
