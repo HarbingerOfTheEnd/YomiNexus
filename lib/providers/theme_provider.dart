@@ -30,8 +30,10 @@ class YominexusTheme extends _$YominexusTheme {
       );
     }
 
-    final ThemeData? lightTheme =
-        lightColorScheme != null ? ThemeData.light(useMaterial3: true) : null;
+    final ThemeData? lightTheme = lightColorScheme != null
+        ? ThemeData.light(useMaterial3: true)
+            .copyWith(colorScheme: lightColorScheme)
+        : null;
 
     final ThemeData? darkTheme = darkColorScheme != null
         ? ThemeData.dark(useMaterial3: true)
