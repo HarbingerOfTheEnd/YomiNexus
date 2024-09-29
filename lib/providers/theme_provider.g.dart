@@ -6,7 +6,7 @@ part of 'theme_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$yominexusThemeHash() => r'feafcdfa9b3bb8e9ccd206454e190d37b5c2f8c2';
+String _$yominexusThemeHash() => r'4dc62ff71fdf892d0d4f307d217fd8e5f177f50e';
 
 /// See also [YominexusTheme].
 @ProviderFor(YominexusTheme)

@@ -31,13 +31,17 @@ class YominexusTheme extends _$YominexusTheme {
     }
 
     final ThemeData? lightTheme = lightColorScheme != null
-        ? ThemeData.light(useMaterial3: true)
-            .copyWith(colorScheme: lightColorScheme)
+        ? ThemeData.light(useMaterial3: true).copyWith(
+            colorScheme: lightColorScheme,
+            scaffoldBackgroundColor: lightColorScheme.surface,
+          )
         : null;
 
     final ThemeData? darkTheme = darkColorScheme != null
-        ? ThemeData.dark(useMaterial3: true)
-            .copyWith(colorScheme: darkColorScheme)
+        ? ThemeData.dark(useMaterial3: true).copyWith(
+            colorScheme: darkColorScheme,
+            scaffoldBackgroundColor: darkColorScheme.surface,
+          )
         : null;
 
     return (lightTheme, darkTheme);
