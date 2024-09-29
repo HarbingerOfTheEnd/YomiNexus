@@ -6,7 +6,7 @@ extension ColorSchemeExt on SharedPreferencesWithCache {
   (ColorScheme?, ColorScheme?) getColorScheme() {
     final String colorschemeValue =
         getString(Constants.colorschemeKey) ?? 'Default';
-    final String themeModeValue = getString(Constants.themeModeKey) ?? 'System';
+    final String themeModeValue = getString(Constants.themeModeKey) ?? 'system';
 
     return switch ([colorschemeValue, themeModeValue]) {
       [Constants.cloudflareColorSchemeValue, 'light'] => (
