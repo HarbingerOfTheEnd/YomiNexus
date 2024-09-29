@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yominexus/core/constants.dart';
 import 'package:yominexus/core/extensions.dart';
@@ -10,6 +11,7 @@ class YominexusTheme extends _$YominexusTheme {
   (ThemeData?, ThemeData?) _getTheme() {
     final ColorScheme? lightColorScheme;
     ColorScheme? darkColorScheme;
+
     (lightColorScheme, darkColorScheme) =
         Constants.sharedPreferences.getColorScheme();
     final bool isPureBlackDarkMode = ref.watch(
@@ -36,6 +38,8 @@ class YominexusTheme extends _$YominexusTheme {
         ? ThemeData.light(useMaterial3: true).copyWith(
             colorScheme: lightColorScheme,
             scaffoldBackgroundColor: lightColorScheme.surface,
+            typography: Typography.material2021(),
+            textTheme: GoogleFonts.robotoTextTheme(),
           )
         : null;
 

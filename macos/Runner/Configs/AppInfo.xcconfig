@@ -8,7 +8,7 @@
 PRODUCT_NAME = yominexus
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = org.yominexus.yominexus
+PRODUCT_BUNDLE_IDENTIFIER = org.yominexus
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2024 org.yominexus. All rights reserved.
