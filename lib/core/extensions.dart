@@ -262,6 +262,23 @@ extension ColorSchemeExt on SharedPreferencesWithCache {
   }
 }
 
+extension ThemeModeExt on SharedPreferencesWithCache {
+  ThemeMode getThemeMode() {
+    final String themeModeValue = getString(Constants.themeModeKey) ?? 'system';
+
+    return ThemeMode.values.firstWhere(
+      (ThemeMode themeMode) => themeMode.toString() == themeModeValue,
+      orElse: () => ThemeMode.system,
+    );
+  }
+
+  Future<void> setThemeMode(
+    ThemeMode themeMode,
+  ) async {
+    await setString(Constants.themeModeKey, themeMode.name);
+  }
+}
+
 extension IsPureBlackDarkModeExt on SharedPreferencesWithCache {
   bool getIsPureBlackDarkMode() {
     return getBool(Constants.isPureBlackDarkModeKey) ?? false;
