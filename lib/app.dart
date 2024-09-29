@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yominexus/core/constants.dart';
+import 'package:yominexus/providers/theme_mode_provider.dart';
 import 'package:yominexus/providers/theme_provider.dart';
 
 class App extends ConsumerWidget {
@@ -11,6 +12,7 @@ class App extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final (lightTheme, darkTheme) = ref.watch(yominexusThemeProvider);
+    final ThemeMode themeMode = ref.watch(yominexusThemeModeProvider);
     final ThemeData? theme = lightTheme ?? darkTheme;
 
     return MaterialApp(
@@ -28,6 +30,7 @@ class App extends ConsumerWidget {
           AppLocalizations.of(context)?.appTitle ?? 'YomiNexus',
       theme: theme,
       darkTheme: darkTheme,
+      themeMode: themeMode,
       initialRoute: Constants.initialRoute,
       routes: Constants.routes,
       debugShowCheckedModeBanner: false,
