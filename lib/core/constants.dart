@@ -24,6 +24,7 @@ class Constants {
   static const Set<String> allowList = {
     colorschemeKey,
     themeModeKey,
+    isPureBlackDarkModeKey,
   };
 
   static const ColorScheme yominexusColorSchemeLight = ColorScheme.light(
