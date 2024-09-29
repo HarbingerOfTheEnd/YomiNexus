@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yominexus/core/constants.dart';
 import 'package:yominexus/core/extensions.dart';
+import 'package:yominexus/providers/amoled_provider.dart';
 part 'theme_provider.g.dart';
 
 @riverpod
@@ -11,8 +12,9 @@ class YominexusTheme extends _$YominexusTheme {
     ColorScheme? darkColorScheme;
     (lightColorScheme, darkColorScheme) =
         Constants.sharedPreferences.getColorScheme();
-    final bool isPureBlackDarkMode =
-        Constants.sharedPreferences.getIsPureBlackDarkMode();
+    final bool isPureBlackDarkMode = ref.watch(
+      yominexusIsPureBlackDarkModeProvider,
+    );
 
     if (isPureBlackDarkMode) {
       const Color surfaceContainer = Color(0xFF0C0C0C);
